@@ -1,13 +1,12 @@
 main {
-  height: 70%;
+  padding: 50px 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 900px;
-  padding: 0 25px;
 }
 
+/* Topic post */
 .topic {
   font-size: 21px;
   line-height: 1.75em;
@@ -43,4 +42,72 @@ main {
 
 .topic-date {
   float: right;
+}
+
+/* Comments */
+.comments {
+  margin-top: 50px;
+}
+
+.comments-title {
+  font-size: 35px;
+  color: #111;
+  text-align: center;
+}
+
+form#add_comment_form {
+  margin-top: 25px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template: 100px 50px / 1fr;
+}
+
+form#add_comment_form input,
+form#add_comment_form textarea {
+  resize: none;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  font-size: 20px;
+  background-color: #eee;
+}
+
+form#add_comment_form textarea {
+  padding: 10px;
+}
+
+form#add_comment_form textarea::placeholder {
+  transition: opacity .3s;
+}
+
+form#add_comment_form textarea:hover::placeholder {
+  opacity: 0;
+}
+
+form#add_comment_form input[type='submit'] {
+  grid-column: 1 / -1;
+  cursor: pointer;
+}
+
+form#add_comment_form input[type='submit']:hover {
+  background-color: #ddd;
+}
+
+.comment {
+  background-color: #151515;
+  padding: 15px;
+  border-radius: 3px;
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #ddd;
+}
+
+.comment-author {
+  cursor: pointer;
+}
+
+.comment-date {
+  color: #222;
+  font-weight: bold;
 }
