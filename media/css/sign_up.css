@@ -4,7 +4,6 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1040px;
   padding: 0 50px;
 }
 
@@ -13,7 +12,6 @@ main {
   grid-gap: 10px;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
-  max-width: 1040px;
 }
 
 .sign_up_form input {

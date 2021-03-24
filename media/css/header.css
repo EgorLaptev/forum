@@ -1,7 +1,7 @@
 .page-header {
   width: 100%;
   height: 75px;
-  padding: 0 25px;
+  padding: 0 10px 0 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +14,7 @@
 }
 
 .page-header a {
-  color: white;
+  color: #eee;
   text-decoration: none;
 }
 
@@ -23,6 +23,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  text-transform: uppercase;
 }
 
 .page-header .header-menu li {
@@ -34,9 +35,26 @@
   font-size: 18px;
   padding: 0 15px;
   height: 100%;
-  line-height: 70px;
+  line-height: 77px;
 }
 
-.page-header .header-menu a:hover {
+.page-header .header-menu a:hover,
+.page-header .header-menu .dropdown-menu:hover {
   background-color: #161616;
+}
+
+.page-header .header-menu .dropdown-menu {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  color: #eee;
+  font-size: 18px;
+  outline: none;
+  text-transform: uppercase;
+  padding: 0 5px 0 15px;
+}
+
+.page-header .header-menu .dropdown-menu option {
+  background-color: #111;
+  border: none;
 }
