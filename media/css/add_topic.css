@@ -49,3 +49,9 @@ form#add_topic_form input[type='submit']:hover {
     grid-template-columns: 1fr;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .page-title {
+    font-size: 50px;
+  }
+}

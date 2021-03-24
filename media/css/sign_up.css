@@ -43,3 +43,9 @@ main {
     grid-template-columns: 1fr;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .page-title {
+    font-size: 75px;
+  }
+}

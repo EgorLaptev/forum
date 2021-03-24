@@ -32,4 +32,5 @@ main {
   color: #333;
   text-transform: uppercase;
   user-select: none;
+  white-space: nowrap;
 }
