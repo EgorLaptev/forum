@@ -1,0 +1,46 @@
+main {
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 900px;
+  padding: 0 25px;
+}
+
+.topic {
+  font-size: 21px;
+  line-height: 1.75em;
+  color: #fff;
+  background-color: #151515;
+  padding: 25px;
+  border-radius: 3px;
+}
+
+.topic-title {
+  font-size: 50px;
+  margin: 30px 0;
+  cursor: pointer;
+}
+
+.topic-title a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.topic-description {}
+
+.topic-author,
+.topic-date {
+  color: #222;
+  cursor: pointer;
+  user-select: none;
+}
+
+.topic-author {
+  font-weight: bold;
+}
+
+.topic-date {
+  float: right;
+}
