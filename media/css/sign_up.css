@@ -1,10 +1,9 @@
 main {
-  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0 50px;
+  padding: 50px 25px;
 }
 
 .sign_up_form {
@@ -37,4 +36,10 @@ main {
 
 .sign_up_form input[type='submit']:hover {
   background-color: #ddd;
+}
+
+@media screen and (max-width: 605px) {
+  .sign_up_form {
+    grid-template-columns: 1fr;
+  }
 }
