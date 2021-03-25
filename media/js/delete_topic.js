@@ -8,7 +8,7 @@ if(deleteTopic)
       let data = new FormData();
       data.set('id', deleteTopic.dataset.id);
 
-      const request = fetch('core/delete_topic.php', {
+      const request = fetch('http://forum/core/delete_topic.php', {
         method: 'POST',
         body: data
       });

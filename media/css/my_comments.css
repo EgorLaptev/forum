@@ -1,0 +1,18 @@
+.comment {
+  background-color: #151515;
+  padding: 15px;
+  border-radius: 3px;
+  margin: 10px 0;
+  font-size: 18px;
+  line-height: 1.5em;
+  color: #ddd;
+}
+
+.comment-author {
+  cursor: pointer;
+}
+
+.comment-date {
+  color: #222;
+  font-weight: bold;
+}
