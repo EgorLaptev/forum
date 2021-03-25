@@ -83,3 +83,9 @@ main {
   background-color: #101010;
   color: #333;
 }
+
+.error {
+  color: red;
+  text-align: center;
+  margin: 15px 0;
+}
