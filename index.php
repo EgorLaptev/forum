@@ -47,6 +47,7 @@
           foreach($topics as $topic) :
       ?>
         <li class="topic">
+          <?php if($_SESSION['login'] == 'admin' || $_SESSION['login'] == $topic['author']) : ?> <button id="delete_topic" class="topic-delete" data-id="<?=$topic['id']?>">Delete</button> <?php endif; ?>
           <a href="/pages/topic.php?id=<?=$topic['id']?>"></a>
           <h3 class="topic-title"><?=$topic['title']?></h3>
           <p class="topic-description"><?=$topic['description']?></p>
@@ -71,6 +72,8 @@
   </footer>
 
   <script defer src="media/js/dropdown.js" charset="utf-8"></script>
+  <script defer src="media/js/delete_topic.js" charset="utf-8"></script>
+  <script defer src="media/js/update_topics.js" charset="utf-8"></script>
 
 
 </body>
