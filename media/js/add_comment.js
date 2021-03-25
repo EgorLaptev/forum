@@ -16,10 +16,11 @@ form.addEventListener('submit', evt => {
   request
     .then(resp => resp.text())
     .then(text => {
+      update();
       content.value = null;
       error.textContent = text;
     });
 
-    update();
+
 
 });
