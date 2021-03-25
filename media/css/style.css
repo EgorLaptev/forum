@@ -8,6 +8,10 @@ body {
   background-color: #222;
   font-family: sans-serif;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
 }
 
 ul {
@@ -33,4 +37,49 @@ main {
   text-transform: uppercase;
   user-select: none;
   white-space: nowrap;
+}
+
+.page-footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #111;
+  padding: 50px 0;
+}
+
+.page-footer .phone {
+  color: #444;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.page-footer .phone:hover {
+  color: #555;
+}
+
+.page-footer .footer-menu li {
+  margin: 10px 0;
+}
+
+.page-footer .footer-menu a {
+  color: #444;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.page-footer .footer-menu a:hover {
+  color: #555;
+}
+
+.page-footer .copyright {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px 0;
+  text-align: center;
+  background-color: #101010;
+  color: #333;
 }
