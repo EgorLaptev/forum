@@ -42,7 +42,13 @@ function update() {
         date.setAttribute('datetime', comm['date'])
         date.textContent = comm['date'];
 
-        comment.append(author, content, date);
+        let buttonDelete = document.createElement('a');
+        buttonDelete.classList.add('comment-delete');
+        buttonDelete.id = 'delete_comment';
+        buttonDelete.setAttribute('href', `../core/delete_comment.php?id=${comm['id']}`);
+        buttonDelete.textContent = 'Delete';
+
+        comment.append(author, content, date, buttonDelete);
         comments.append(comment);
 
       });

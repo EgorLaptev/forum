@@ -50,6 +50,7 @@
 
       ?>
         <li class="comment">
+          <?php if($_SESSION['login'] == 'admin' || $_SESSION['login'] == $topic['author']) : ?> <button id="delete_comment" class="comment-delete" data-id="<?=$comment['id']?>">Delete</button> <?php endif; ?>
           <span class="comment-author"><?=$comment['author']?></span>
           <p class="comment-content"><?=$comment['content']?></p>
           <time class="comment-date" datetime="<?=(new DateTime($comment['date']))->format('Y-M-d')?>"><?=(new DateTime($comment['date']))->format('Y F d')?></time>
@@ -72,7 +73,7 @@
   </footer>
 
   <script defer src="../media/js/dropdown.js" charset="utf-8"></script>
-  <script defer src="../media/js/delete_topic.js" charset="utf-8"></script>
+  <script defer src="../media/js/delete_comment.js" charset="utf-8"></script>
 
 </body>
 

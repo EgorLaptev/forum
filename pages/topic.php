@@ -62,7 +62,9 @@
           <input type="hidden" name="id" value="<?=$id?>">
           <input type="submit" name="add_comment" value="Send">
         </form>
-      <?php endif; ?>
+      <?php else: ?>
+        <input type="hidden" name="id" value="<?=$id?>">
+      <?php endif ?>
 
       <span class="error"></span>
 
@@ -87,6 +89,7 @@
   <script defer src="../media/js/dropdown.js" charset="utf-8"></script>
   <script defer src="../media/js/update_comments.js" charset="utf-8"></script>
   <script defer src="../media/js/add_comment.js" charset="utf-8"></script>
+  <script defer src="../media/js/delete_comment.js" charset="utf-8"></script>
 
 
 </body>
