@@ -40,41 +40,20 @@
 
   <main class="main-content">
     <ul class="topics">
-      <li class="topic">
-        <a href="/pages/topic.html"></a>
-        <h3 class="topic-title">Title</h3>
-        <p class="topic-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, similique.</p>
-        <span class="topic-author">Laptev Egor</span>
-        <time class="topic-date" datetime="2021-03-24">24 March 2021</time>
-      </li>
-      <li class="topic">
-        <a href="/pages/topic.html"></a>
-        <h3 class="topic-title">Title</h3>
-        <p class="topic-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, similique.</p>
-        <span class="topic-author">Laptev Egor</span>
-        <time class="topic-date" datetime="2021-03-24">24 March 2021</time>
-      </li>
-      <li class="topic">
-        <a href="/pages/topic.html"></a>
-        <h3 class="topic-title">Title</h3>
-        <p class="topic-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, similique.</p>
-        <span class="topic-author">Laptev Egor</span>
-        <time class="topic-date" datetime="2021-03-24">24 March 2021</time>
-      </li>
-      <li class="topic">
-        <a href="/pages/topic.html"></a>
-        <h3 class="topic-title">Title</h3>
-        <p class="topic-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, similique.</p>
-        <span class="topic-author">Laptev Egor</span>
-        <time class="topic-date" datetime="2021-03-24">24 March 2021</time>
-      </li>
-      <li class="topic">
-        <a href="/pages/topic.html"></a>
-        <h3 class="topic-title">Title</h3>
-        <p class="topic-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, similique.</p>
-        <span class="topic-author">Laptev Egor</span>
-        <time class="topic-date" datetime="2021-03-24">24 March 2021</time>
-      </li>
+      <?php
+          $topics = $pdo->query("SELECT * FROM `topics`")
+                        ->fetchAll(PDO::FETCH_ASSOC);
+
+          foreach($topics as $topic) :
+      ?>
+        <li class="topic">
+          <a href="/pages/topic.php?id=<?=$topic['id']?>"></a>
+          <h3 class="topic-title"><?=$topic['title']?></h3>
+          <p class="topic-description"><?=$topic['description']?></p>
+          <span class="topic-author"><?=$topic['author']?></span>
+          <time class="topic-date" datetime="2021-03-24"><?=$topic['date']?></time>
+        </li>
+      <?php endforeach; ?>
     </ul>
   </main>
 
@@ -92,6 +71,7 @@
   </footer>
 
   <script defer src="media/js/dropdown.js" charset="utf-8"></script>
+
 
 </body>
 

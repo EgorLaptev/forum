@@ -1,3 +1,7 @@
+<?php
+  if(session_status() != 2) session_start();
+  require_once '../core/connect.php';
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -36,12 +40,17 @@
 
   <main class="main-content">
     <h1 class="page-title">Add topic</h1>
-    <form action="core/add_topic.php" method="POST" id="add_topic_form">
-      <input type="text" name="title" placeholder="Title" required>
+    <form action="../core/add_topic.php" method="POST" id="add_topic_form">
+      <input type="text" name="title" placeholder="Title" >
       <input type="text" name="description" placeholder="Description" required>
       <textarea name="content" required placeholder="Content" rows="7"></textarea>
       <input type="submit" name="add_topic" value="Confirm">
     </form>
+
+    <span class="error">
+      <?php if(isset($_SESSION['addtopic_error'])) echo $_SESSION['addtopic_error'] ?>
+    </span>
+
   </main>
 
   <footer class="page-footer">
