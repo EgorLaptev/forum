@@ -50,23 +50,19 @@
       <span class="topic-description"><?=$topic['description']?></span>
       <p class="topic-content"><?=$topic['content']?></p>
       <span class="topic-author"><?=$topic['author']?></span>
-      <time class="topic-date" datetime="2021-03-24"><?=$topic['date']?></time>
+      <time class="topic-date" datetime="<?=(new DateTime($topic['date']))->format('Y-m-d')?>"><?=(new DateTime($topic['date']))->format('Y F d')?></time>
     </article>
 
     <section class="comments">
       <h3 class="comments-title">Comments</h3>
-      <ul class="comments-list">
-          <li class="comment">
-            <span class="comment-author"><?=$comment['author']?></span>
-            <p class="comment-content"><?=$comment['content']?></p>
-            <time class="comment-date" datetime="2021-03-25"><?=$comment['date']?></time>
-          </li>
-      </ul>
-      <form action="../core/add_comment.php?id=<?=$id?>" method="POST" id="add_comment_form">
-        <textarea id="content" name="content" required placeholder="You'r comment"></textarea>
-        <input type="hidden" name="id" value="<?=$id?>">
-        <input type="submit" name="add_comment" value="Send">
-      </form>
+      <ul class="comments-list"></ul>
+      <?php if(isset($_SESSION['login']) && !empty(trim($_SESSION['login']))) : ?>
+        <form action="../core/add_comment.php?id=<?=$id?>" method="POST" id="add_comment_form">
+          <textarea id="content" name="content" required placeholder="You'r comment"></textarea>
+          <input type="hidden" name="id" value="<?=$id?>">
+          <input type="submit" name="add_comment" value="Send">
+        </form>
+      <?php endif; ?>
 
       <span class="error"></span>
 

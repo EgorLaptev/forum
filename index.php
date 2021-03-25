@@ -51,7 +51,7 @@
           <h3 class="topic-title"><?=$topic['title']?></h3>
           <p class="topic-description"><?=$topic['description']?></p>
           <span class="topic-author"><?=$topic['author']?></span>
-          <time class="topic-date" datetime="2021-03-24"><?=$topic['date']?></time>
+          <time class="topic-date" datetime="<?=(new DateTime($topic['date']))->format('Y-m-d')?>"><?=(new DateTime($topic['date']))->format('Y F d')?></time>
         </li>
       <?php endforeach; ?>
     </ul>

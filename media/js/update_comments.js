@@ -1,7 +1,9 @@
 'use strict';
 
-const comments = document.querySelector('.comments-list'),
-      id       = document.querySelector("input[name='id']").value;
+let comments = document.querySelector('.comments-list'),
+    id       = document.querySelector("input[name='id']");
+
+if(id) id = id.value;
 
 update();
 
@@ -21,6 +23,7 @@ function update() {
     .then(resp => resp.json())
     .then(json => {
       comments.innerHTML = '';
+
       json.forEach(comm => {
 
         let comment = document.createElement('li');
@@ -36,6 +39,7 @@ function update() {
 
         let date = document.createElement('time');
         date.classList.add('comment-date');
+        date.setAttribute('datetime', comm['date'])
         date.textContent = comm['date'];
 
         comment.append(author, content, date);

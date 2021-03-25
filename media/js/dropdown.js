@@ -2,6 +2,10 @@
 
 const dropdown = document.querySelector('#dropdown-menu');
 
-dropdown.addEventListener('input', function(evt) {
-  window.location = this.value
-});
+if(dropdown) {
+
+  dropdown.addEventListener('input', function(evt) {
+    window.location = this.value
+  });
+
+}
