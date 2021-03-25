@@ -65,6 +65,7 @@
       <?php else: ?>
         <input type="hidden" name="id" value="<?=$id?>">
       <?php endif ?>
+        <input type="hidden" name="login" value="<?=$_SESSION['login']?>">
 
       <span class="error"></span>
 

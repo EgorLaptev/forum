@@ -1,9 +1,8 @@
 'use strict';
 
 let comments = document.querySelector('.comments-list'),
-    id       = document.querySelector("input[name='id']");
-
-if(id) id = id.value;
+    id       = document.querySelector("input[name='id']").value,
+    login    = document.querySelector("input[name='login']").value;
 
 update();
 
@@ -43,12 +42,16 @@ function update() {
         date.textContent = comm['date'];
 
         let buttonDelete = document.createElement('a');
-        buttonDelete.classList.add('comment-delete');
-        buttonDelete.id = 'delete_comment';
-        buttonDelete.setAttribute('href', `../core/delete_comment.php?id=${comm['id']}`);
-        buttonDelete.textContent = 'Delete';
+
+        if(login == comm['author'] || login == 'admin') {
+          buttonDelete.classList.add('comment-delete');
+          buttonDelete.id = 'delete_comment';
+          buttonDelete.setAttribute('href', `../core/delete_comment.php?id=${comm['id']}`);
+          buttonDelete.textContent = 'Delete';
+        }
 
         comment.append(author, content, date, buttonDelete);
+
         comments.append(comment);
 
       });
