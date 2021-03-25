@@ -41,7 +41,12 @@
   <main class="main-content">
     <ul class="topics">
       <?php
-          $topics = $pdo->query("SELECT * FROM `topics`")
+
+
+
+          $offset = ($_GET['page'] && $_GET['page'] > 1) ? ($_GET['page']-1)*5 : 0;
+
+          $topics = $pdo->query("SELECT * FROM `topics` LIMIT $offset, 5")
                         ->fetchAll(PDO::FETCH_ASSOC);
 
           foreach($topics as $topic) :
@@ -56,6 +61,12 @@
         </li>
       <?php endforeach; ?>
     </ul>
+
+    <div class="pagination">
+      <a href="http://forum/?page=<?=($_GET['page'] > 1) ? $_GET['page']-1 : 1;?>" id="previos-page"><</a>
+      <a href="http://forum/?page=<?=($_GET['page'] < 2) ? $_GET['page']+1 : 2;?>" id="next-page">></a>
+    </div>
+
   </main>
 
   <footer class="page-footer">
