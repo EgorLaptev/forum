@@ -1,3 +1,8 @@
+<?php
+  if(session_status() != 2) session_start();
+  require_once '../core/connect.php';
+  $id = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -35,43 +40,35 @@
   </header>
 
   <main class="main-content">
+    <?php
+      $topic = $pdo->query("SELECT * FROM `topics` WHERE `id` = '$id' LIMIT 1")
+                   ->fetch(PDO::FETCH_ASSOC);
+    ?>
+
     <article class="topic">
-      <h1 class="topic-title"><a href="topic.html">Title</a></h1>
-      <span class="topic-description">Lorem ipsum dolor sit amet, consectetur adipisicing.</span>
-      <p class="topic-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi quas architecto exercitationem, voluptates officia blanditiis, distinctio adipisci omnis repudiandae sequi soluta possimus a aut consectetur pariatur
-        molestiae eveniet, tempora ex inventore. Nostrum ullam amet magni ut nisi, rerum quae aperiam quos ab natus minima provident eos aliquam qui velit cupiditate, mollitia non dolore quia consequuntur sequi cumque. Veniam vitae dolorem aut vero,
-        optio reprehenderit culpa animi doloribus inventore sed, quae magnam quos asperiores eius quod voluptatem. Reiciendis quisquam molestias vel voluptate aut deleniti accusantium voluptatem quos recusandae corrupti aspernatur cum soluta enim
-        sit,
-        explicabo iusto, eum sunt facilis animi nemo.
-      </p>
-      <span class="topic-author">Laptev Egor</span>
-      <time class="topic-date" datetime="2021-03-24">24 March 2021</time>
+      <h1 class="topic-title"><a href="topic.php?id=<?=$topic['id']?>"><?=$topic['title']?></a></h1>
+      <span class="topic-description"><?=$topic['description']?></span>
+      <p class="topic-content"><?=$topic['content']?></p>
+      <span class="topic-author"><?=$topic['author']?></span>
+      <time class="topic-date" datetime="2021-03-24"><?=$topic['date']?></time>
     </article>
 
     <section class="comments">
       <h3 class="comments-title">Comments</h3>
       <ul class="comments-list">
-        <li class="comment">
-          <span class="comment-author">Laptev Egor</span>
-          <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veniam minima accusantium alias doloremque ab animi quam, reprehenderit commodi eum quibusdam quia neque cupiditate molestiae.</p>
-          <time class="comment-date" datetime="2021-03-25">25 March 2021</time>
-        </li>
-        <li class="comment">
-          <span class="comment-author">Laptev Egor</span>
-          <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veniam minima accusantium alias doloremque ab animi quam, reprehenderit commodi eum quibusdam quia neque cupiditate molestiae.</p>
-          <time class="comment-date" datetime="2021-03-25">25 March 2021</time>
-        </li>
-        <li class="comment">
-          <span class="comment-author">Laptev Egor</span>
-          <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veniam minima accusantium alias doloremque ab animi quam, reprehenderit commodi eum quibusdam quia neque cupiditate molestiae.</p>
-          <time class="comment-date" datetime="2021-03-25">25 March 2021</time>
-        </li>
+          <li class="comment">
+            <span class="comment-author"><?=$comment['author']?></span>
+            <p class="comment-content"><?=$comment['content']?></p>
+            <time class="comment-date" datetime="2021-03-25"><?=$comment['date']?></time>
+          </li>
       </ul>
-      <form action="core/add_comment.php" method="POST" id="add_comment_form">
-        <textarea name="content" required placeholder="You'r comment"></textarea>
+      <form action="../core/add_comment.php?id=<?=$id?>" method="POST" id="add_comment_form">
+        <textarea id="content" name="content" required placeholder="You'r comment"></textarea>
+        <input type="hidden" name="id" value="<?=$id?>">
         <input type="submit" name="add_comment" value="Send">
       </form>
 
+      <span class="error"></span>
 
     </section>
 
@@ -92,6 +89,9 @@
 
 
   <script defer src="../media/js/dropdown.js" charset="utf-8"></script>
+  <script defer src="../media/js/update_comments.js" charset="utf-8"></script>
+  <script defer src="../media/js/add_comment.js" charset="utf-8"></script>
+
 
 </body>
 

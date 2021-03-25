@@ -8,6 +8,7 @@ main {
 
 /* Topic post */
 .topic {
+  width: 100%;
   font-size: 21px;
   line-height: 1.75em;
   color: #fff;
@@ -47,6 +48,7 @@ main {
 /* Comments */
 .comments {
   margin-top: 50px;
+  width: 100%;
 }
 
 .comments-title {

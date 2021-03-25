@@ -85,7 +85,9 @@ main {
 }
 
 .error {
+  display: block;
   color: red;
+  width: 100%;
   text-align: center;
   margin: 15px 0;
 }
